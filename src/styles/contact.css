@@ -1,0 +1,139 @@
+.contact-section {
+    padding: 60px 6%;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+/* Top Section */
+.contact-top {
+    margin-bottom: 30px;
+}
+
+.contact-top h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #1a1733;
+}
+
+/* Contact Content */
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Contact Details */
+.contact-details {
+    text-align: left;
+    flex: 1;
+    max-width: 45%;
+}
+
+.contact-details h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.contact-details p {
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 18px !important;
+
+}
+
+.contact-details>p>strong{
+    color: black;
+}
+
+.contact-details a {
+    color: black;
+    text-decoration: none;
+    /* font-weight: bold; */
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.contact-details .icon {
+    color: #f9a825;
+    font-size: 1.2rem;
+}
+
+/* Contact Form */
+.contact-form {
+    flex: 1;
+    max-width: 40%;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a1733;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px 30px; */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #9b8ec9;
+}
+
+.contact-form button {
+    background: #f9a825;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #e68a00;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 900px) {
+    .contact-content {
+        /* flex-direction: column; */
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-details,
+    .contact-form {
+        max-width: 100%;
+    }
+
+    .contact-details {
+        text-align: center;
+    }
+}

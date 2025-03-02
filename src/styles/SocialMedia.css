@@ -1,0 +1,33 @@
+.social-media {
+    text-align: left;
+    font-family: Arial, sans-serif;
+  }
+  
+  .social-media h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .icon {
+    font-size: 35px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .linkedin { color: #0077b5; }
+  .github { color: #171515; }
+  .whatsapp { color: #25d366; }
+  .facebook { color: #1877f2; }
+  .instagram { color: #e4405f; }
+  .chess { color: #008b00; }
+  
+  .icon:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  

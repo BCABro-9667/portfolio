@@ -1,0 +1,17 @@
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #211E39;
+    color: #b6b6b6;
+}
+
+.footer nav {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #b6b6b6;
+  }
+  
