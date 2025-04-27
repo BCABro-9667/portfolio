@@ -8,6 +8,9 @@ import About from '../pages/About'
 import Skills from '../components/Skills'
 import Projects from '../pages/Projects'
 import Contact from '../pages/Contact'
+// import StatsSection from "../components/StatsSection";
+
+
 
 
 const Home = () => {
@@ -44,11 +47,13 @@ const Home = () => {
         <img src={men} alt="BCABro" height="450px" />
       </motion.div>
     </div>
+      {/* <StatsSection/> */}
       <About/>
       <Expertise/>
       <Skills/>
       <Projects/>
       <Contact/>
+      {/* <Chatbot /> */}
 
     </>
   );

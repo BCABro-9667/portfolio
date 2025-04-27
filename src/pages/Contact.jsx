@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import axios from "axios";
+import emailjs from "@emailjs/browser"; // ✅ Import EmailJS
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap
 import "../styles/contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faMapMarkerAlt, faGlobe } from "@fortawesome/free-solid-svg-icons";
-import SocialLinks from '../components/SocialLinks'
-import '../styles/Expertise.css'
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [loading, setLoading] = useState(false);
-  const [showAlert, setShowAlert] = useState(false); // ✅ State for Bootstrap alert
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,30 +20,38 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    try {
-      const response = await axios.post("https://portfoliofrom-1.onrender.com/api/contact", formData);
-      if (response.data.success) {
-        toast.success("Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        setShowAlert(true); // ✅ Show Bootstrap alert
-        setTimeout(() => setShowAlert(false), 5000); // Hide after 5 seconds
-      }
-    } catch (error) {
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    emailjs
+      .send(
+        "service_0oyi5r8", // 🔹 Replace with your EmailJS Service ID
+        "template_jwzde0g", // 🔹 Replace with your EmailJS Template ID
+        formData,
+        "zPPFP74bsEruexByu" // 🔹 Replace with your EmailJS Public Key
+      )
+      .then(
+        () => {
+          toast.success("Message sent successfully!");
+          setFormData({ name: "", email: "", phone: "", message: "" });
+          setShowAlert(true);
+          setTimeout(() => setShowAlert(false), 5000);
+        },
+        (error) => {
+          console.error("Failed to send email:", error);
+          toast.error("Failed to send message. Please try again.");
+        }
+      )
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
     <div className="contact-section">
-      <div className="contact-top">
-      </div>
+      <div className="contact-top"></div>
 
       <div className="content1">
         <h4 className="ex">Get in touch</h4>
         <div className="content-h2">
-        <h2>Any Questions? Feel Free to Contact</h2>
+          <h2>Any Questions? Feel Free to Contact</h2>
         </div>
       </div>
 
@@ -53,22 +59,25 @@ const Contact = () => {
         {/* Left Side: Contact Details */}
         <div className="contact-details">
           <h2>Contact Me</h2>
-          <p><FontAwesomeIcon icon={faEnvelope} className="icon" /> <strong>Email:</strong> 
+          <p>
+            <FontAwesomeIcon icon={faEnvelope} className="icon" /> <strong>Email:</strong>
             <a href="mailto:avdeshrajput925064@gmail.com"> avdeshrajput925064@gmail.com</a>
           </p>
-          <p><FontAwesomeIcon icon={faPhone} className="icon" /> <strong>Phone:</strong> 
+          <p>
+            <FontAwesomeIcon icon={faPhone} className="icon" /> <strong>Phone:</strong>
             <a href="tel:+919667346203"> +91 96673 46203</a>
           </p>
-          <p><FontAwesomeIcon icon={faMapMarkerAlt} className="icon" /> <strong>Address:</strong> 
+          <p>
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" /> <strong>Address:</strong>
             Sector-7, IMT Manesar, Gurgaon - 122 505
           </p>
-          <p><FontAwesomeIcon icon={faGlobe} className="icon" /> <strong>Website:</strong> 
-            <a href="https://portfolio.netlify.app" target="_blank" rel="noopener noreferrer"> portfolio.netlify.app</a>
-          </p>
           <p>
+            <FontAwesomeIcon icon={faGlobe} className="icon" /> <strong>Website:</strong>
+            <a href="https://avdheshh-portfolio.netlify.app/" target="_blank" rel="noopener noreferrer">
+            https://avdheshh-portfolio.netlify.app/
+            </a>
           </p>
         </div>
-            {/* <SocialLinks/> */}
 
         {/* Right Side: Contact Form */}
         <div className="contact-form">
@@ -84,7 +93,7 @@ const Contact = () => {
           <form onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Your Name" required value={formData.name} onChange={handleChange} />
             <input type="email" name="email" placeholder="Your Email" required value={formData.email} onChange={handleChange} />
-            <input type="text" name="subject" placeholder="Subject" required value={formData.subject} onChange={handleChange} />
+            <input type="text" name="phone" placeholder="Phone No" required value={formData.phone} onChange={handleChange} />
             <textarea name="message" placeholder="Your Message" required value={formData.message} onChange={handleChange}></textarea>
             <button type="submit" disabled={loading}>{loading ? "Sending..." : "Send Message"}</button>
           </form>

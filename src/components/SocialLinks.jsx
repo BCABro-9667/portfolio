@@ -5,7 +5,7 @@ import '../styles/SocialMedia.css'
 const SocialLinks = () => {
   return (
     <div className="social-media">
-      <h3>Follow Us:</h3>
+      {/* <h3>Follow Us:</h3> */}
       <div className="social-icons">
         <a href="https://www.linkedin.com/in/avdhesh-bca-/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin className="icon linkedin" />

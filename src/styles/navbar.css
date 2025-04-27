@@ -13,6 +13,7 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    z-index: 999 !important;
 
 }
 
@@ -51,7 +52,8 @@
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 20px 0;
+    padding: 1px 0; 
+    
 }
 
 .bar {
@@ -71,6 +73,10 @@
     background-color: #f39c12;
     color: white;
     cursor: pointer;
+  }
+  .hire-me-top a{
+    text-decoration: none;
+    color: white;
   }
 
 
@@ -99,3 +105,35 @@
         display: flex;
     }
 }
+
+/* Add this to your global styles or navbar.css */
+.dark {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .dark .navbar-links {
+    color: #ffffff;
+  }
+  
+  .dark .navbar-logo {
+    color: #ffffff;
+  }
+  
+  .dark .navbar-item a {
+    color: #ffffff;
+  }
+  
+  .dark .hire-me-top {
+    background-color: #e67e22;
+    color: #ffffff;
+  }
+  
+  .dark-mode-toggle {
+    background-color: #e67e22;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
